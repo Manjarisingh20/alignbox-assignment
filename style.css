@@ -3,10 +3,10 @@
 :root {
     --primary-red: #B91F26;
     --light-grey: #F0F0F0;
-    --text-dark: #333;
+    --text-dark: #333; 
     --text-light: #fff;
     --text-secondary: #888;
-}
+    --header-text-red: #8B0000;
 
 body {
     font-family: 'Roboto', sans-serif;
@@ -28,8 +28,6 @@ body {
     flex-direction: column;
     overflow: hidden;
 }
-
-/* Header */
 .chat-header {
     display: flex;
     justify-content: space-between;
@@ -37,10 +35,25 @@ body {
     padding: 15px;
     border-bottom: 1px solid var(--light-grey);
 }
-.header-left { display: flex; align-items: center; gap: 15px; }
-.group-avatar { width: 40px; height: 40px; border-radius: 50%; }
-.group-name { font-weight: 500; font-size: 1.1em; color: var(--text-dark); }
-.header-left > i { font-size: 1.2em; color: var(--text-dark); }
+.header-left { 
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+}
+.group-avatar { 
+    width: 40px; 
+    height: 40px; 
+    border-radius: 50%; 
+}
+.group-name { 
+    font-weight: 500; 
+    font-size: 1.1em; 
+    color: var(--header-text-red);
+}
+.header-left > i { 
+    font-size: 1.2em; 
+    color: var(--text-dark);
+}
 .anon-button {
     background-color: var(--primary-red);
     color: var(--text-light);
@@ -54,9 +67,7 @@ body {
     justify-content: center;
     align-items: center;
 }
-.anon-button.anonymous-on { background-color: #27ae60; } /* Green when active */
-
-/* Message Area */
+.anon-button.anonymous-on { background-color: #27ae60; } 
 .message-area {
     flex: 1;
     padding: 15px;
@@ -100,7 +111,6 @@ body {
     border-top-right-radius: 5px;
 }
 
-/* Message Tail */
 .message.sent::after {
     content: '';
     position: absolute;
@@ -123,7 +133,6 @@ body {
 .message.received .timestamp { color: var(--text-secondary); }
 .timestamp .fa-check-double { margin-left: 4px; }
 
-/* System Message */
 .system-message {
     display: flex;
     align-items: center;
@@ -134,7 +143,6 @@ body {
     color: var(--text-secondary);
 }
 
-/* Footer */
 .chat-footer {
     display: flex;
     align-items: center;
