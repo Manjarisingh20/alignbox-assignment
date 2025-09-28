@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+:root {
+    --primary-red: #B91F26;
+    --light-grey: #F0F0F0;
+    --text-dark: #333;
+    --text-light: #fff;
+    --text-secondary: #888;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    background-color: #e5e5e5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.chat-container {
+    width: 375px;
+    height: 812px;
+    background-color: var(--text-light);
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Header */
+.chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid var(--light-grey);
+}
+.header-left { display: flex; align-items: center; gap: 15px; }
+.group-avatar { width: 40px; height: 40px; border-radius: 50%; }
+.group-name { font-weight: 500; font-size: 1.1em; color: var(--text-dark); }
+.header-left > i { font-size: 1.2em; color: var(--text-dark); }
+.anon-button {
+    background-color: var(--primary-red);
+    color: var(--text-light);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.2em;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.anon-button.anonymous-on { background-color: #27ae60; } /* Green when active */
+
+/* Message Area */
+.message-area {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.message-wrapper {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    max-width: 80%;
+}
+.message-wrapper.sent { align-self: flex-end; }
+.message-wrapper.received { align-self: flex-start; }
+
+.avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--light-grey);
+    flex-shrink: 0;
+}
+.avatar img { width: 100%; height: 100%; border-radius: 50%; }
+
+.message-content-wrapper { display: flex; flex-direction: column; }
+.sender-name { font-size: 0.8em; font-weight: 500; color: var(--text-dark); margin-bottom: 4px; }
+
+.message {
+    padding: 10px 15px;
+    border-radius: 18px;
+    position: relative;
+    word-wrap: break-word;
+}
+.message.received { background-color: var(--light-grey); color: var(--text-dark); border-top-left-radius: 5px; }
+.message.sent {
+    background-color: var(--primary-red);
+    color: var(--text-light);
+    border-top-right-radius: 5px;
+}
+
+/* Message Tail */
+.message.sent::after {
+    content: '';
+    position: absolute;
+    right: -8px;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-left-color: var(--primary-red);
+    border-bottom-color: var(--primary-red);
+}
+
+.message p { margin: 0; font-size: 0.95em; }
+.timestamp {
+    font-size: 0.75em;
+    margin-top: 5px;
+    text-align: right;
+    color: rgba(255, 255, 255, 0.7);
+}
+.message.received .timestamp { color: var(--text-secondary); }
+.timestamp .fa-check-double { margin-left: 4px; }
+
+/* System Message */
+.system-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 0;
+    font-size: 0.8em;
+    color: var(--text-secondary);
+}
+
+/* Footer */
+.chat-footer {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    gap: 10px;
+    border-top: 1px solid var(--light-grey);
+}
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    background-color: var(--light-grey);
+    border-radius: 20px;
+    padding: 0 15px;
+}
+#message-input {
+    border: none;
+    outline: none;
+    padding: 12px 0;
+    background: transparent;
+    flex: 1;
+}
+.input-wrapper i { color: var(--text-secondary); margin-left: 12px; }
+.send-btn {
+    background-color: var(--primary-red);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    font-size: 1.1em;
+    flex-shrink: 0;
+}
